@@ -1,0 +1,48 @@
+$textShadow : 2px 2px 4px rgba($color: #000000, $alpha: 0.3);
+
+header{
+    box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.3);
+    width: 100%;
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 10%;
+    
+        .logo{
+            text-shadow: $textShadow;
+        }
+    
+        ul.nav-links{
+            
+            list-style-type: none;
+            margin: 0 10% 0 0 ;
+            display: flex;
+            align-items: center;
+            li {
+                padding: 0 30% 0 0;
+                a {
+                    text-decoration: none;
+                    font-size: 20px;
+                    color: black;
+                    text-shadow: $textShadow;
+                    
+                    &:hover {
+                        color: skyblue;
+                    }
+                    &.active{
+                        color: red;
+                    }
+                    
+                }
+                button {
+                    letter-spacing: 2px;
+                    border-radius: 5px;
+                    background-color: brown;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

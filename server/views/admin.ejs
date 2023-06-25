@@ -1,0 +1,75 @@
+<%- include('./header'); %>
+<body>
+    <section class="container">
+        <div class="header bg-dark text-white">
+            <h1 class="m-1">Admin Panel</h1>
+            <div>
+                <form action="/admin/search" method="get">
+                    <input type="search" placeholder="Search by Name" name="name" id="input-search" >
+                    <input class="btn btn-warning btn-search" type="submit" value="search" />
+                </form>
+                <a class="m-1 btn btn-primary text-white" href="/admin/csvDownload"> CSV Download</a>
+            </div>
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% if(users.length===0) { %> 
+                    <tr><td colspan="5" style="text-align:center;color:red;"><b>No Users Found!</b></td></tr>
+                <%  } else {  %>
+                <% users.forEach(function (user,i) { %>
+                    <tr>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.phone %></td>
+                        <td><%= user.status %></td>
+                  </tr>
+                
+                <% }) %> 
+              <% } %>
+            </tbody>
+          </table>
+
+          <nav aria-label="Page navigation example">
+          <% if (pages > 0) { %>
+            <ul class="pagination justify-content-center">
+                <% if (current == 1) { %>
+                    <li class="page-item disabled"><a class="page-link">First</a></li>
+                <% } else { %>
+                    <li><a class="page-link" href="/admin/page/1">First</a></li>
+                <% } %>
+                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                <% if (i !== 1) { %>
+                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                <% } %>
+                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% if (i == current) { %>
+                        <li class="page-item active"><a class="page-link"><%= i %></a></li>
+                    <% } else { %>
+                        <li><a class="page-link" href="/admin/page/<%= i %>"><%= i %></a></li>
+                    <% } %>
+                    <% if (i == Number(current) + 4 && i < pages) { %>
+                        <li class="page-item disabled"><a class="page-link">...</a></li>
+                    <% } %>
+                <% } %>
+                <% if (current == pages) { %>
+                    <li class="page-item disabled"><a class="page-link">Last</a></li>
+                <% } else { %>
+                    <li><a class="page-link" href="/admin/page/<%= pages %>">Last</a></li>
+                <% } %>
+            </ul>
+        <% } %>
+        </nav>
+
+    </section>
+</body>
+</html>

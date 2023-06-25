@@ -1,0 +1,44 @@
+<%- include('./header'); %>
+<body>
+    <section class="container">
+        <div class="header bg-dark text-white">
+            <h1 class="m-1">Admin Panel</h1>
+            <div>
+                <form action="/admin/search" method="get">
+                    <input type="search" placeholder="Search by Name" id="input-search" name="name" >
+                    <input class="btn btn-warning btn-search" type="submit" value="search" />
+                </form>
+                <a class="m-1 btn btn-primary text-white" href="/admin/"> Back</a>
+            </div>
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% if(users.length===0) { %> 
+                    <tr><td colspan="5" style="text-align:center;color:red;"><b>No Users Found!</b></td></tr>
+                <%  } else {  %>
+                <% users.forEach(function (user,i) { %>
+                    <tr>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.phone %></td>
+                        <td><%= user.status %></td>
+                  </tr>
+                
+                <% }) %> 
+              <% } %>
+            </tbody>
+          </table>
+
+    </section>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.profile-section{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    height: 80vh;
+
+    .img-box{
+        height: 200px;
+        width: 200px;
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    .details{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .btn-box{
+        display: flex;
+        flex-direction: column;
+        
+        button {
+            margin: 10%;
+            padding: 5%;
+            font-size: 20px;
+            width: 200px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.3);
+            color: white;
+        }
+        
+    }
+}
