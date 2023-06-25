@@ -8,6 +8,21 @@ Users can delete their accounts and log out automatically.
 Create a static page(using express.js) where all registered users can be shown in list( user server side Pagination,with sorting and searching), and Download list as CSV
 Technologies - Node Js and MongoDb
 
+## How to start
+    If you change mongodb url then, change it in .env file
+    ```
+    Step 1: cd server
+    Step 2: npm start
+    Step 3: npm start
+    ```
+
+## APIs
+```
+    For User: http://localhost:5000/login
+
+    For Admin: http://localhost:5000/admin
+```
+
 ## Backend modules
 ```
 ├── bcrypt@5.1.0

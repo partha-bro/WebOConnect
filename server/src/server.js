@@ -25,7 +25,7 @@ const startServer = async () => {
 
     try {
         const PORT = process.env.PORT || 5000
-        const response = await connectDB( process.env.MONGO_URL,'testDB')
+        const response = await connectDB( process.env.MONGO_URL,'webOConnect')
         console.log(`Mongo Connection with: ${response.connection.host}`)
         server.listen(PORT, console.log(`Server is running on ${PORT}`))
     } catch (err) {
